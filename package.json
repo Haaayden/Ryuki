@@ -1,0 +1,27 @@
+{
+  "name": "ryuki",
+  "version": "0.0.1",
+  "description": "Server Code",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Haaayden/Ryuki.git"
+  },
+  "keywords": [
+    "koa"
+  ],
+  "author": "ChenHui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Haaayden/Ryuki/issues"
+  },
+  "homepage": "https://github.com/Haaayden/Ryuki#readme",
+  "dependencies": {
+    "koa": "^2.5.0",
+    "koa-router": "^7.4.0"
+  }
+}
