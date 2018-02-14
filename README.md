@@ -2,38 +2,38 @@
 > Masked Rider Ryuki
 my server code base on Koa
 
-Ryuki Project
-├── package.json
-├── app.js
-├── app
-|   ├── router.js
-│   ├── controller
-│   |   └── home.js
-│   ├── service
-│   |   └── user.js
-│   ├── middleware
-│   |   └── response_time.js
-│   ├── schedule (future)
-│   |   └── my_task.js
-│   ├── public
-│   |   └── reset.css
-│   ├── view
-│   |   └── home.tpl
-│   └── extend (future)
-│       ├── helper.js
-│       ├── request.js
-│       ├── response.js
-│       ├── context.js
-│       ├── application.js
-│       └── agent.js
-├── config
-|   ├── config.default.js
-│   ├── config.prod.js
-└── test
-    ├── middleware
-    |   └── response_time.test.js
-    └── controller
-        └── home.test.js
+Ryuki Project  
+├── package.json  
+├── app.js  
+├── app  
+|   ├── router.js  
+│   ├── controller  
+│   |   └── home.js  
+│   ├── service  
+│   |   └── user.js  
+│   ├── middleware  
+│   |   └── response_time.js  
+│   ├── schedule (future)  
+│   |   └── my_task.js  
+│   ├── public  
+│   |   └── reset.css  
+│   ├── view  
+│   |   └── home.tpl  
+│   └── extend (future)  
+│       ├── helper.js  
+│       ├── request.js  
+│       ├── response.js  
+│       ├── context.js  
+│       ├── application.js  
+│       └── agent.js  
+├── config  
+|   ├── config.default.js  
+│   ├── config.prod.js  
+└── test  
+    ├── middleware  
+    |   └── response_time.test.js  
+    └── controller  
+        └── home.test.js  
 
 目录解释：
 - `app/router.js` 用于配置 URL 路由规则
