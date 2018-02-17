@@ -1,9 +1,38 @@
+const path = require('path')
+const fs = require('fs')
 const Koa = require('koa')
-const app = new Koa()
+const bodyParser = require('koa-bodyparser')
+const static = require('koa-static')
+const views = require('koa-views')
+const log4js = require('koa-log4')
 const router = require('./app/router')
 const config = require('./config')
 
 const port = config.port
+
+const app = new Koa()
+const log = log4js.getLogger('App')
+const staticPath = './app/public'
+const viewsPath = './app/view'
+const logPath = './log'
+
+// 生成log目录
+try {
+  fs.mkdirSync(path.join(__dirname, logPath))
+} catch (err) {
+  if(err.code !== 'EEXIST') {
+    log.error('Could not create log directory', err)
+    process.exit(1)
+  }
+}
+
+log.level = 'info'
+
+app.use(bodyParser())
+app.use(static(path.join(__dirname, staticPath)))
+app.use(views(path.join(__dirname, viewsPath), {
+  extension: 'ejs'
+}))
 
 // X-Response-Time
 // app.use(async (ctx, next) => {

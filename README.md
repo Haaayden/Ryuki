@@ -50,3 +50,7 @@ Ryuki Project
 待考虑：
 - `app/schedule/**` 定时任务
 - `app/extend/**` 框架扩展
+
+
+待完成：
+1. 日志记录（文件格式）
