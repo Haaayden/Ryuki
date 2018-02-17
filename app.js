@@ -1,6 +1,9 @@
 const Koa = require('koa')
 const app = new Koa()
 const router = require('./app/router')
+const config = require('./config')
+
+const port = config.port
 
 // X-Response-Time
 // app.use(async (ctx, next) => {
@@ -26,9 +29,9 @@ const router = require('./app/router')
 app.use(router.routes()).use(router.allowedMethods())
 
 app.on('error', err => {
-  log.error('server error', err)
+  log.error('Server Error', err)
 });
 
-app.listen(3000, () => {
-  console.log('server is listeing on port 3000')
+app.listen(port, () => {
+  log.info(`Server is listening on port ${port}...`)
 })
