@@ -7,6 +7,7 @@ const views = require('koa-views')
 const log4js = require('koa-log4')
 const router = require('./app/router')
 const config = require('./config')
+const errorHandler = require('./app/middleware/errorHandler')
 
 const port = config.port
 
@@ -15,6 +16,8 @@ const log = log4js.getLogger('App')
 const staticPath = './app/public'
 const viewsPath = './app/view'
 const logPath = './log'
+
+global.$config = config
 
 // 生成log目录
 try {
@@ -28,6 +31,7 @@ try {
 
 log.level = 'info'
 
+app.use(errorHandler)
 app.use(bodyParser())
 app.use(static(path.join(__dirname, staticPath)))
 app.use(views(path.join(__dirname, viewsPath), {
@@ -57,9 +61,9 @@ app.use(views(path.join(__dirname, viewsPath), {
 
 app.use(router.routes()).use(router.allowedMethods())
 
-app.on('error', err => {
-  log.error('Server Error', err)
-});
+app.on('error', async (err, ctx, next) => {
+  log.error(err)
+})
 
 app.listen(port, () => {
   log.info(`Server is listening on port ${port}...`)
