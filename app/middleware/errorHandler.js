@@ -5,7 +5,7 @@ module.exports = async (ctx, next) => {
   } catch (error) {
     const response = error
     ctx.body = {
-      code: 0,
+      code: error.statusCode || error.status || 500,
       result: response
     }
   }

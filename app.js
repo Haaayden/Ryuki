@@ -62,7 +62,11 @@ app.use(views(path.join(__dirname, viewsPath), {
 app.use(router.routes()).use(router.allowedMethods())
 
 app.on('error', async (err, ctx, next) => {
-  log.error(err)
+  log.error('=== app on error log ===', err)
+  ctx.body = {
+    code: err.statusCode || err.status || 500,
+    result: err
+  }
 })
 
 app.listen(port, () => {
