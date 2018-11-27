@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./lib/animate.min.css">
   <script type="text/javascript" src="./lib/flexiable.js"></script>
   <script type="text/javascript" src="./lib/echarts.min.js"></script>
+  <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
   <script type="text/javascript">
     // function isMobile() {
     //   var ua = window.navigator.userAgent;
@@ -701,6 +702,39 @@
         swiperAnimate(swiper);
       }
     });
+
+    $.ajax({
+      url: "http://share.didojoy.com/wechat/signature",
+      data: {
+        url: location.href.split('#')[0]
+      },
+      success: function(res) {
+        console.log('=======', res)
+        if (res.code === 1) {
+          var sign = res.result && res.result.sign
+          wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: 'wx919c5505efc13932', // 必填，公众号的唯一标识
+            timestamp: sign.timestamp, // 必填，生成签名的时间戳
+            nonceStr: sign.nonceStr, // 必填，生成签名的随机串
+            signature: sign.signature,// 必填，签名
+            jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData'] // 必填，需要使用的JS接口列表
+          })
+          wx.ready({
+            var shareData = {
+              title: '五矿绩效考核', // 分享标题
+              desc: '五矿国际2018年度绩效考核', // 分享描述
+              link: 'http://share.didojoy.com/wukuang/index.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+              imgUrl: 'https://ws4.sinaimg.cn/large/006tNbRwly1fxn2rakqztj30tw0thdhv.jpg', // 分享图标
+            }
+            wx.updateAppMessageShareData(shareData)
+            wx.updateTimelineShareData(shareData)
+          })
+
+        }
+      }
+    })
+
   </script>
   <script type="text/javascript" src="./lib/addChart.js"></script>
 </body>
