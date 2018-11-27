@@ -18,6 +18,7 @@ const viewsPath = './app/view'
 const logPath = './log'
 
 global.$config = config
+global.$wechat = {signs: []}
 
 // 生成log目录
 try {
