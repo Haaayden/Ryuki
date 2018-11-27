@@ -718,7 +718,7 @@
             timestamp: sign.timestamp, // 必填，生成签名的时间戳
             nonceStr: sign.nonceStr, // 必填，生成签名的随机串
             signature: sign.signature,// 必填，签名
-            jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData'] // 必填，需要使用的JS接口列表
+            jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ'] // 必填，需要使用的JS接口列表
           })
           wx.ready(function() {
             var shareData = {
@@ -727,8 +727,12 @@
               link: 'http://share.didojoy.com/wukuang/index.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
               imgUrl: 'https://ws4.sinaimg.cn/large/006tNbRwly1fxn2rakqztj30tw0thdhv.jpg', // 分享图标
             }
+            wx.onMenuShareAppMessage(shareData)
+            wx.onMenuShareTimeline(shareData)
+            wx.onMenuShareQQ(shareData)
             wx.updateAppMessageShareData(shareData)
             wx.updateTimelineShareData(shareData)
+            console.log('=== xxx ===', shareData)
           })
 
         }
