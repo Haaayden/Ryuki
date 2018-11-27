@@ -720,7 +720,7 @@
             signature: sign.signature,// 必填，签名
             jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData'] // 必填，需要使用的JS接口列表
           })
-          wx.ready({
+          wx.ready(function() {
             var shareData = {
               title: '五矿绩效考核', // 分享标题
               desc: '五矿国际2018年度绩效考核', // 分享描述
