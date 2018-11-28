@@ -3,16 +3,16 @@
 
 <head>
   <meta charset="utf-8">
-  <title>年度绩效</title>
+  <title>五矿国际2018年度绩效考核</title>
   <meta name="description" content="五矿国际2018年度绩效考核">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="./lib/swiper-3.4.2.min.css">
   <link rel="stylesheet" href="./lib/animate.min.css">
   <script type="text/javascript" src="./lib/flexiable.js"></script>
-  <script type="text/javascript" src="./lib/echarts.min.js"></script>
-  <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
-  <script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script>
-  <script>eruda.init();</script>
+  <!-- <script type="text/javascript" src="./lib/echarts.min.js"></script> -->
+  <!-- <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script> -->
+  <!-- <script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script> -->
+  <!-- <script>eruda.init();</script> -->
   <script type="text/javascript">
     // function isMobile() {
     //   var ua = window.navigator.userAgent;
@@ -31,14 +31,29 @@
     // }
   </script>
   <link rel="stylesheet" href="./lib/index.css">
+  <link rel="stylesheet" href="./lib/loading.css">
 </head>
 
 <body>
   <div class="swiper-container wh100">
+    <div id="loading">
+      <div id="loading-center">
+        <div id="loading-center-absolute">
+          <div class="object" id="object_four"></div>
+          <div class="object" id="object_three"></div>
+          <div class="object" id="object_two"></div>
+          <div class="object" id="object_one"></div>
+
+          <p class="loading-text">加载中...</p>
+        </div>
+      </div>
+    </div>
+
     <div class="swiper-wrapper wh100">
 
       <!-- slide1 封面 start -->
       <div class="swiper-slide slide slide1">
+        <!-- <img src="https://pbs.twimg.com/profile_images/496232196341239808/6d32D9uI_400x400.jpeg" style="position: absolute;left: -100000px;width: 301px;height: 301px;" alt=""> -->
         <div class="logo-container">
           <img class="logo ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="3s" src="./images/logo.png" alt="logo">
         </div>
@@ -689,61 +704,101 @@
   <script type="text/javascript" src="./lib/swiper-3.4.2.jquery.min.js"></script>
   <script type="text/javascript" src="./lib/swiper.animate1.0.2.min.js"></script>
   <script type="text/javascript">
+
+    window.onload = function() {
+      $('#loading').fadeOut()
+      initSwiper()
+    }
+
+    // imgsLoaded()
+
+    function imgsLoaded() {
+      var img = [],  
+        flag = 0, 
+        mulitImg = [
+        './images/building.png',
+        './images/bg.jpg',
+        './images/logo.png',
+        './images/core.png'
+      ];
+      var imgTotal = mulitImg.length;
+      for(var i = 0 ; i < imgTotal ; i++){
+        img[i] = new Image()
+        img[i].src = mulitImg[i]
+        img[i].onload = (function(index){
+          //第i张图片加载完成
+          console.log('=== 单张图片加载完成 ===', index)
+          flag++
+          if( flag == imgTotal ){
+            //全部加载完成
+            console.log('=== 全部图片加载完成 ===', index)
+            $('#loading').fadeOut()
+            initSwiper()
+          }
+        })(i)
+      }
+      console.log('xxxxxxxx', img)
+    }
+
+
     // 初始化 swiper
-    var mySwiper = new Swiper('.swiper-container', {
-      direction: 'vertical',
-      // 分页器
-      pagination: '.swiper-pagination',
-      paginationClickable: true,
-      // initialSlide: 1,
-      onInit: function (swiper) {
-        swiperAnimateCache(swiper);
-        swiperAnimate(swiper);
-      },
-      onSlideChangeEnd: function (swiper) {
-        swiperAnimate(swiper);
-      }
-    });
-
-    $.ajax({
-      url: "http://share.didojoy.com/wechat/signature",
-      // url: "http://192.168.0.108:3000/wechat/signature",
-      data: {
-        url: location.href.split('#')[0]
-      },
-      success: function(res) {
-        console.log('=======', res)
-        if (res.code === 1) {
-          var sign = res.result && res.result.sign
-          wx.config({
-            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: 'wx919c5505efc13932', // 必填，公众号的唯一标识
-            timestamp: sign.timestamp, // 必填，生成签名的时间戳
-            nonceStr: sign.nonceStr, // 必填，生成签名的随机串
-            signature: sign.signature,// 必填，签名
-            jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ'] // 必填，需要使用的JS接口列表
-          })
-          wx.ready(function() {
-            var shareData = {
-              title: '五矿绩效考核', // 分享标题
-              desc: '五矿国际2018年度绩效考核', // 分享描述
-              link: 'http://share.didojoy.com/wukuang/index.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-              imgUrl: 'https://ws4.sinaimg.cn/large/006tNbRwly1fxn2rakqztj30tw0thdhv.jpg', // 分享图标
-            }
-            wx.onMenuShareAppMessage(shareData)
-            wx.onMenuShareTimeline(shareData)
-            wx.onMenuShareQQ(shareData)
-            wx.updateAppMessageShareData(shareData)
-            wx.updateTimelineShareData(shareData)
-            console.log('=== xxx ===', shareData)
-          })
-
+    function initSwiper() {
+      console.log('=== new swiper ===')
+      var mySwiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        // 分页器
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        // initialSlide: 1,
+        onInit: function (swiper) {
+          swiperAnimateCache(swiper);
+          swiperAnimate(swiper);
+        },
+        onSlideChangeEnd: function (swiper) {
+          swiperAnimate(swiper);
         }
-      }
-    })
+      });
+    }
+
+    // $.ajax({
+    //   url: "http://share.didojoy.com/wechat/signature",
+    //   // url: "http://192.168.0.108:3000/wechat/signature",
+    //   data: {
+    //     url: location.href.split('#')[0]
+    //   },
+    //   success: function(res) {
+    //     console.log('=======', res)
+    //     if (res.code === 1) {
+    //       var sign = res.result && res.result.sign
+    //       wx.config({
+    //         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    //         appId: 'wx919c5505efc13932', // 必填，公众号的唯一标识
+    //         timestamp: sign.timestamp, // 必填，生成签名的时间戳
+    //         nonceStr: sign.nonceStr, // 必填，生成签名的随机串
+    //         signature: sign.signature,// 必填，签名
+    //         jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ'] // 必填，需要使用的JS接口列表
+    //       })
+    //       wx.ready(function() {
+    //         var shareData = {
+    //           title: '五矿绩效考核', // 分享标题
+    //           desc: '五矿国际2018年度绩效考核', // 分享描述
+    //           link: 'http://share.didojoy.com/wukuang/index.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+    //           imgUrl: 'https://ws4.sinaimg.cn/large/006tNbRwly1fxn2rakqztj30tw0thdhv.jpg', // 分享图标
+    //         }
+    //         wx.onMenuShareAppMessage(shareData)
+    //         wx.onMenuShareTimeline(shareData)
+    //         wx.onMenuShareQQ(shareData)
+    //         wx.updateAppMessageShareData(shareData)
+    //         wx.updateTimelineShareData(shareData)
+    //         console.log('=== xxx ===', shareData)
+    //       })
+
+    //     }
+    //   }
+    // })
 
   </script>
-  <script type="text/javascript" src="./lib/addChart.js"></script>
+  <!-- <script type="text/javascript" src="./lib/addChart.js"></script> -->
 </body>
 
 </html>
