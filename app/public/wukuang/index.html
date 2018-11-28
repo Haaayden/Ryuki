@@ -11,6 +11,8 @@
   <script type="text/javascript" src="./lib/flexiable.js"></script>
   <script type="text/javascript" src="./lib/echarts.min.js"></script>
   <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+  <script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script>
+  <script>eruda.init();</script>
   <script type="text/javascript">
     // function isMobile() {
     //   var ua = window.navigator.userAgent;
@@ -705,6 +707,7 @@
 
     $.ajax({
       url: "http://share.didojoy.com/wechat/signature",
+      // url: "http://192.168.0.108:3000/wechat/signature",
       data: {
         url: location.href.split('#')[0]
       },
@@ -713,7 +716,7 @@
         if (res.code === 1) {
           var sign = res.result && res.result.sign
           wx.config({
-            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
             appId: 'wx919c5505efc13932', // 必填，公众号的唯一标识
             timestamp: sign.timestamp, // 必填，生成签名的时间戳
             nonceStr: sign.nonceStr, // 必填，生成签名的随机串
