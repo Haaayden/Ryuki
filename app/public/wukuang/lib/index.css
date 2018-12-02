@@ -76,6 +76,7 @@ body {
   background-position: 51% 10%;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .content {
@@ -106,8 +107,46 @@ body {
   width: 4.6rem;
   position: absolute;
   right: 0;
-  bottom: 0
+  bottom: 0;
 }
+
+.slide .music-btn {
+  position: absolute;
+  bottom: .9rem;
+  right: .4rem;
+  width: .8rem;
+  opacity: .6;
+}
+.slide .music-btn.faiz-ani {
+  -webkit-animation:myRotate 10s linear infinite;
+  animation:myRotate 10s linear infinite;
+}
+
+.slide1 .music-btn {
+  bottom: .3rem;
+}
+
+.slide .next-page {
+  position: absolute;
+  width: 1.4rem;
+  left: 4.3rem;
+  bottom: 35px;
+  -webkit-animation:myToBottom 2s linear infinite;
+  animation:myToBottom 2s linear infinite;
+}
+@-webkit-keyframes myToBottom{
+  0%{ -webkit-transform: translateY(20px); opacity: 0;}
+  40%{ -webkit-transform: translateY(25px); opacity: .4;}
+  80%{ -webkit-transform: translateY(30px); opacity: 1;}
+  100%{ -webkit-transform: translateY(35px); opacity: .2;}
+}
+@keyframes myToBottom{
+  0%{ -webkit-transform: translateY(20px); opacity: 0;}
+  40%{ -webkit-transform: translateY(25px); opacity: .4;}
+  80%{ -webkit-transform: translateY(30px); opacity: 1;}
+  100%{ -webkit-transform: translateY(35px); opacity: .2;}
+}
+
 
 .slide .core {
   /* width: 10rem;
@@ -147,7 +186,7 @@ body {
 }
 
 .slide .content-text .header {
-  height: 2rem;
+  height: 1.4rem;
   background-image: url('../images/title-img.png');
   background-size: 100%;
   background-repeat: no-repeat;
@@ -327,12 +366,13 @@ body {
 
 /* slide3 目录 start */
 .timeline {
-  height: 8.4rem;
+  height: 7.9rem;
   width: .06rem;
   background: #3365b7;
   position: absolute;
   left: 4.6rem;
   font-size: .3rem;
+  margin-top: .4rem
 }
 
 .timeline .timeline-item {
@@ -395,7 +435,7 @@ body {
 /* slide3 考核创新与优化1 */
 .slide3-chart h2 {
   font-size: 14px;
-  margin-top: 3.2rem;
+  margin-top: 3rem;
   width: 100%;
   text-align: center;
 }
@@ -403,7 +443,7 @@ body {
   position: relative;
   height: 1px;
   background-color: #000;
-  margin: 3.4rem .5rem 0 .5rem;
+  margin: 2.2rem .5rem 0 .5rem;
 }
 .slide3-chart .chart-block {
   width: 1.2rem;
@@ -418,21 +458,21 @@ body {
   color: #000;
   width: 3rem;
   left: -1rem;
-  top: 2.9rem;
+  top: 2.4rem;
   text-align: center;
   font-size: 12px;
 }
 .slide3-chart .chart-20 {
-  height: 1.8rem;
-  line-height: 1.8rem;
-  top: -0.9rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  top: -0.6rem;
   left: 25%;
 }
 .slide3-chart .chart-60 {
-  height: 5rem;
-  line-height: 5rem;
+  height: 3.6rem;
+  line-height: 3.6rem;
   background-color: #3365b7;
-  top: -2.5rem;
+  top: -1.8rem;
   left: 65%;
 }
 
@@ -441,7 +481,7 @@ body {
 /* slide4 start */
 .slide4 .content-text>img{
   width: 100%;
-  margin-top: .6rem;
+  margin-top: .2rem;
 }
 /* slide4 end */
 
@@ -462,21 +502,37 @@ body {
 /* slide8 start */
 .slide8 .content-show .img-container>img{
   width: 90%;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 /* slide8 end */
 
 /* slide9 start */
 .slide9 .content-show .img-container>img{
-  width: 74%;
+  width: 50%;
   /* margin-top: .4rem; */
+}
+.slide9 .content-show .img-container>img:nth-child(1){
+  width: 50%;
+  margin-top: .2rem;
+}
+.slide9 .content-show .img-container>img:nth-child(2){
+  width: 50%;
+  margin-top: .2rem;
 }
 /* slide9 end */
 
 /* slide10 start */
 .slide10 .content-show .img-container>img{
-  width: 74%;
+  width: 50%;
   /* margin-top: .4rem; */
+}
+.slide10 .content-show .img-container>img:nth-child(1){
+  width: 50%;
+  margin-top: .2rem;
+}
+.slide10 .content-show .img-container>img:nth-child(2){
+  width: 50%;
+  margin-top: .2rem;
 }
 /* slide10 end */
 
@@ -523,13 +579,19 @@ body {
   background-color: #DAE6F5;
   border: 2px dashed #4784D1;
   border-radius: 1rem;
-  padding: .5rem .2rem 0 .2rem;
-  margin-top: 1rem;
+  padding: .2rem;
+  margin-top: .2rem;
+  width: 6rem;
+  margin-left: .7rem;
 }
 .slide16 .content-container div {
-  margin-bottom: .5rem;
+  margin-bottom: .1rem;
 }
 .slide16 .content-container p {
   font-size: .4rem;
+}
+.slide16 .last-text {
+  width: 100%;
+  margin-top: .2rem;
 }
 /* slide16 end */
