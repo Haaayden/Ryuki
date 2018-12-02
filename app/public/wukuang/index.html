@@ -11,8 +11,8 @@
   <script type="text/javascript" src="./lib/flexiable.js"></script>
   <!-- <script type="text/javascript" src="./lib/echarts.min.js"></script> -->
   <!-- <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script> -->
-  <!-- <script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script> -->
-  <!-- <script>eruda.init();</script> -->
+  <!-- <script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script>
+  <script>eruda.init();</script> -->
   <script type="text/javascript">
     // function isMobile() {
     //   var ua = window.navigator.userAgent;
@@ -176,8 +176,8 @@
               <h2 class="ani" swiper-animate-effect="zoomIn" swiper-animate-delay="1s">考核创新与优化</h2>
             </div>
             <div class="content-show">
-              <h3 class="p-title ani" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1s">实行“商品核算负责人“考核制</h3>
-              <p class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1s">明确各商品及业务类型的核算负责人，对商品核算负责人的考核指标做到“指标数字清晰、业务类型清晰、核算口径清晰”；对商品核算负责人，60%的考核权重为KPI指标直接核算，进一步加强对商品核算负责人的激励和约束力度。</p>
+              <h3 class="p-title ani" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1s">实行“商品负责人“考核制</h3>
+              <p class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1s">明确各商品及业务类型的核算负责人，对商品负责人的考核指标做到“指标数字清晰、业务类型清晰、核算口径清晰”；对商品负责人，60%的考核权重为KPI指标直接核算，进一步加强对商品负责人的激励和约束力度。</p>
               <div class="slide3-chart ani" swiper-animate-effect="fadeInUp" swiper-animate-delay="2s">
                 <div class="container">
                   <div class="chart-20 chart-block">20% <span>一般业务人员</span> </div>
@@ -336,17 +336,17 @@
                   <span class="desc ani" swiper-animate-effect="fadeInRight" swiper-animate-delay="1.5s">正式评价阶段</span>
                 </div>
                 <div class="timeline-item timeline-item4">
-                  <span class="time ani" swiper-animate-effect="fadeInLeft" swiper-animate-delay="1.5s">12月17日-29日</span>
+                  <span class="time ani" swiper-animate-effect="fadeInLeft" swiper-animate-delay="1.5s">12月17日-1月14日</span>
                   <span class="block-separator ani" swiper-animate-effect="fadeIn" swiper-animate-delay="1s"></span>
                   <span class="desc ani" swiper-animate-effect="fadeInRight" swiper-animate-delay="1.5s">绩效结果统计、汇总与逐级确认</span>
                 </div>
                 <div class="timeline-item timeline-item5">
-                  <span class="time ani" swiper-animate-effect="fadeInLeft" swiper-animate-delay="1.5s">1月2日-11日</span>
+                  <span class="time ani" swiper-animate-effect="fadeInLeft" swiper-animate-delay="1.5s">1月中下旬</span>
                   <span class="block-separator ani" swiper-animate-effect="fadeIn" swiper-animate-delay="1s"></span>
-                  <span class="desc ani" swiper-animate-effect="fadeInRight" swiper-animate-delay="1.5s">绩效结果备案与应用</span>
+                  <span class="desc ani" swiper-animate-effect="fadeInRight" swiper-animate-delay="1.5s">绩效反馈与结果应用</span>
                 </div>
                 <div class="timeline-item timeline-item6">
-                  <span class="time ani" swiper-animate-effect="fadeInLeft" swiper-animate-delay="1.5s">1月14日之后</span>
+                  <span class="time ani" swiper-animate-effect="fadeInLeft" swiper-animate-delay="1.5s">2月之后</span>
                   <span class="block-separator ani" swiper-animate-effect="fadeIn" swiper-animate-delay="1s"></span>
                   <span class="desc ani" swiper-animate-effect="fadeInRight" swiper-animate-delay="1.5s">考核后续工作</span>
                 </div>
@@ -484,7 +484,7 @@
           <!-- 内容区 -->
           <div class="content-text">
             <div class="header ani" swiper-animate-effect="fadeIn">
-              <h2 class="ani" swiper-animate-effect="zoomIn" swiper-animate-delay="1s">考核指标构成</h2>
+              <h2 class="ani" swiper-animate-effect="zoomIn" swiper-animate-delay="1s">重点工作由谁评价</h2>
             </div>
             <div class="content-show">
               <!-- <div id="slide4-1"></div> -->
@@ -518,7 +518,7 @@
           <!-- 内容区 -->
           <div class="content-text">
             <div class="header ani" swiper-animate-effect="fadeIn">
-              <h2 class="ani" swiper-animate-effect="zoomIn" swiper-animate-delay="1s">工作业绩评价主体</h2>
+              <h2 class="ani" swiper-animate-effect="zoomIn" swiper-animate-delay="1s">能力素质由谁评价</h2>
             </div>
             <div class="content-show">
               <!-- <div id="slide7-1"></div>
@@ -738,7 +738,7 @@
     <div class="swiper-pagination"></div>
   </div>
 
-  <audio id="bgmusic" src="./lib/bg.mp3" autoplay preload loop></audio>
+  <audio loop id="bgmusic" src="./lib/bg.mp3" autoplay preload></audio>
 
 
   <script type="text/javascript" src="./lib/jquery-3.1.1.min.js"></script>
@@ -746,6 +746,8 @@
   <script type="text/javascript" src="./lib/swiper.animate1.0.2.min.js"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
   <script type="text/javascript">
+
+    var myAudio = null
 
     window.onload = function() {
       $('#loading').fadeOut()
@@ -757,7 +759,7 @@
       // $('html').one('touchstart',function(){
       //     audio.play();
       // });
-
+      autoPlayAudio()
     }
     function autoPlayAudio() {
       wx.config({
@@ -770,13 +772,17 @@
           jsApiList: []
       });
       wx.ready(function() {
-          document.getElementById('bgmusic').play();
-          $('.music-btn').addClass('faiz-ani');
+        console.log('=== wx ready ===')
+        myAudio = document.getElementById('bgmusic')
+        myAudio.play();
+        myAudio.loop = true;
+        $('.music-btn').addClass('faiz-ani');
+
+        // if ios
+        // loopAudio()
       });
     }
-    autoPlayAudio()
 
-    // imgsLoaded()
 
     function imgsLoaded() {
       var img = [],
@@ -830,15 +836,42 @@
     }
 
     $('.music-btn').click(function() {
-      var musicAudioEle = document.getElementById('bgmusic')
-      if (musicAudioEle.paused) {
-        musicAudioEle.play()
+      if (myAudio === null) {
+        myAudio = document.getElementById('bgmusic');
+      }
+      console.log('=== myAudio ===', myAudio, myAudio.paused, myAudio.ended, myAudio.duration, myAudio.currentTime)
+      if (myAudio.paused) {
+        myAudio.play()
         $('.music-btn').addClass('faiz-ani')
       } else {
-        musicAudioEle.pause()
+        myAudio.pause()
         $('.music-btn').removeClass('faiz-ani')
       }
     })
+
+    function loopAudio () {
+      function checkAudioStatusAndPlay(params) {
+        // if (myAudio === null) {
+        //   myAudio = document.getElementById('bgmusic');
+        // }
+        if (myAudio.currentTime >= 4) {
+          console.log('=== 音乐播放结束10s ===', myAudio.currentTime, myAudio.duration)
+          // // 已播放完毕
+          myAudio.pause()
+          myAudio.addEventListener('canplay', function (params) {
+            console.log('=== canplay ===')
+            myAudio.currentTime = 0
+          })
+          // console.log('=== 音乐播放结束 ===', myAudio.currentTime, myAudio.duration)
+
+          // myAudio.play()
+          // myAudio = new Audio()
+          // myAudio.src = "./lib/bg.mp3"
+          // myAudio.play()
+        }
+      }
+      window.loopAudioInterval = setInterval(checkAudioStatusAndPlay, 1000);
+    }
 
 
     // $.ajax({
