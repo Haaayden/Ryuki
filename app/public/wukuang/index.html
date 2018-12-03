@@ -35,6 +35,7 @@
 </head>
 
 <body>
+  <img src="./images/share-logo.jpg" style="width: 400px; height: 400px; position: absolute; visibility: hidden;" />
   <div class="swiper-container wh100">
     <div id="loading">
       <div id="loading-center">
@@ -861,7 +862,7 @@
 
     function loopAudio () {
       function checkAudioStatusAndPlay(params) {
-        if (myAudio.currentTime >= 40) {
+        if (myAudio.currentTime >= 274) {
           // console.log('=== 音乐播放结束40s ===', myAudio.currentTime, myAudio.duration, myAudio.src)
           // 已播放完毕
           if (canPlayMusic === false) {
