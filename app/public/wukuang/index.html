@@ -751,6 +751,7 @@
   <script type="text/javascript">
 
     var myAudio = null
+    var canPlayMusic = true
 
     window.onload = function() {
       $('#loading').fadeOut()
@@ -775,14 +776,16 @@
           jsApiList: []
       });
       wx.ready(function() {
-        console.log('=== wx ready ===')
+        // console.log('=== wx ready ===')
         myAudio = document.getElementById('bgmusic')
         myAudio.play();
         myAudio.loop = true;
         $('.music-btn').addClass('faiz-ani');
 
-        // if ios
-        // loopAudio()
+        // 兼容iOS无法循环播放
+        if (getPlatformTypeHelper() === 'iOS') {
+          loopAudio()
+        }
       });
     }
 
@@ -818,7 +821,7 @@
 
     // 初始化 swiper
     function initSwiper() {
-      console.log('=== new swiper ===')
+      // console.log('=== new swiper ===')
       var mySwiper = new Swiper('.swiper-container', {
         direction: 'vertical',
         // 分页器
@@ -842,38 +845,42 @@
       if (myAudio === null) {
         myAudio = document.getElementById('bgmusic');
       }
-      console.log('=== myAudio ===', myAudio, myAudio.paused, myAudio.ended, myAudio.duration, myAudio.currentTime)
+      // console.log('=== myAudio ===', myAudio, myAudio.paused, myAudio.ended, myAudio.duration, myAudio.currentTime)
       if (myAudio.paused) {
         myAudio.play()
+        canPlayMusic = true
+        loopAudio()
         $('.music-btn').addClass('faiz-ani')
       } else {
         myAudio.pause()
+        canPlayMusic = false
+        clearLoopInterval()
         $('.music-btn').removeClass('faiz-ani')
       }
     })
 
     function loopAudio () {
       function checkAudioStatusAndPlay(params) {
-        // if (myAudio === null) {
-        //   myAudio = document.getElementById('bgmusic');
-        // }
-        if (myAudio.currentTime >= 4) {
-          console.log('=== 音乐播放结束10s ===', myAudio.currentTime, myAudio.duration)
-          // // 已播放完毕
+        if (myAudio.currentTime >= 40) {
+          // console.log('=== 音乐播放结束40s ===', myAudio.currentTime, myAudio.duration, myAudio.src)
+          // 已播放完毕
+          if (canPlayMusic === false) {
+            return
+          }
           myAudio.pause()
-          myAudio.addEventListener('canplay', function (params) {
-            console.log('=== canplay ===')
-            myAudio.currentTime = 0
-          })
-          // console.log('=== 音乐播放结束 ===', myAudio.currentTime, myAudio.duration)
-
-          // myAudio.play()
-          // myAudio = new Audio()
-          // myAudio.src = "./lib/bg.mp3"
-          // myAudio.play()
+          myAudio.currentTime = 0
+          myAudio.src = './lib/bg.mp3'
+          myAudio.load()
         }
       }
+      clearLoopInterval()
       window.loopAudioInterval = setInterval(checkAudioStatusAndPlay, 1000);
+    }
+
+    function clearLoopInterval() {
+      if (window.loopAudioInterval) {
+        clearInterval(window.loopAudioInterval)
+      }
     }
 
 
@@ -913,6 +920,19 @@
     //     }
     //   }
     // })
+
+    function getPlatformTypeHelper() {
+      var platform = 'other'
+      var u = navigator.userAgent
+      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 //android终端
+      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) //ios终端
+      if (isAndroid) {
+        platform = 'android'
+      } else if (isiOS) {
+        platform = 'iOS'
+      }
+      return platform
+    }
 
   </script>
   <!-- <script type="text/javascript" src="./lib/addChart.js"></script> -->
