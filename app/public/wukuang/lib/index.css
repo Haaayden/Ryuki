@@ -595,3 +595,17 @@ body {
   margin-top: .2rem;
 }
 /* slide16 end */
+
+.slide17 .share-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.slide17 .share-img {
+  width: 10rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -5rem;
+  margin-left: -5rem;
+}
