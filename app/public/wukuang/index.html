@@ -11,8 +11,8 @@
   <script type="text/javascript" src="./lib/flexiable.js"></script>
   <!-- <script type="text/javascript" src="./lib/echarts.min.js"></script> -->
   <!-- <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script> -->
-  <!-- <script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script>
-  <script>eruda.init();</script> -->
+  <script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script>
+  <script>eruda.init();</script>
   <script type="text/javascript">
     // function isMobile() {
     //   var ua = window.navigator.userAgent;
@@ -73,7 +73,7 @@
             <h2 class="ani" swiper-animate-effect="slideInLeft" swiper-animate-delay="2s">五矿国际2018年度绩效考核</h2>
           </div>
         </div>
-        <!-- <img src="./images/next-page.png" class="next-page"  alt="next-page"> -->
+        <img src="./images/next-page-2.png" class="next-page"  alt="next-page">
       </div>
       <!-- slide1 封面 end -->
 
@@ -813,6 +813,7 @@
   </div>
 
   <audio loop id="bgmusic" src="./lib/bg.mp3" autoplay preload></audio>
+  <!-- <audio loop id="bgmusic" src="https://res1.eqh5.com/o_1cgdm3kgl1mplec01jq5162l1vecb.mp3" autoplay preload></audio> -->
 
 
   <script type="text/javascript" src="./lib/jquery-3.1.1.min.js"></script>
@@ -936,9 +937,9 @@
 
     function loopAudio () {
       function checkAudioStatusAndPlay(params) {
-        // console.log('=== currentTime ===', myAudio.currentTime, myAudio.duration, canPlayMusic, myAudio.paused, myAudio.ended)
-        if (myAudio.currentTime >= myAudio.duration || myAudio.currentTime >= 247) {
-          // console.log('=== 音乐播放结束80s ===', myAudio.currentTime, myAudio.duration, myAudio.src, canPlayMusic)
+        console.log('=== currentTime ===', myAudio.currentTime, myAudio.duration, canPlayMusic, myAudio.paused, myAudio.ended)
+        if (myAudio.currentTime >= myAudio.duration || myAudio.currentTime >= 275) {
+          console.log('=== 音乐播放结束80s ===', myAudio.currentTime, myAudio.duration, myAudio.src, canPlayMusic)
           // 已播放完毕
           if (canPlayMusic === false) {
             return

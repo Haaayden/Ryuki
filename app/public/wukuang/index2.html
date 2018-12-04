@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script>
+  <script>eruda.init();</script>
+</head>
+<body>
+  <audio id="bg-music" src="./lib/bg2.mp3" autoplay controls></audio>
+  <script>
+    var musicEle = document.getElementById('bg-music')
+    setInterval(() => {
+      console.log(musicEle.currentTime, musicEle.duration)
+    }, 1000);
+  </script>
+</body>
+</html>
