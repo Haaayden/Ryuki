@@ -710,7 +710,7 @@
       <div class="swiper-slide slide slide16">
         <div class="logo-container">
           <!-- <img src="./images/logo.png" id="show-share-btn-logo" class="logo logo-normal ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s" alt="logo"> -->
-          <div class="logo logo-normal ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s">
+          <div class="logo logo-normal ani" id="show-share-btn-logo" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s">
             <img src="./images/logo-1.png" class="logo-1" />
             <img src="./images/logo-2.png" class="logo-2" />
           </div>
@@ -961,6 +961,7 @@
 
 
     function appendShareSlide(params) {
+      console.log('==== 3')
       if (isTitleClicked && isLogoClicked && mySwiper.slides.length <= 16) {
         var str = '<div class="swiper-slide slide slide17"><div class="share-container"><img src="./images/share-logo.jpg" class="share-img" /></div></div>'
         mySwiper.appendSlide(str)
@@ -968,10 +969,12 @@
     }
 
     $('#show-share-btn-title').on('click', function () {
+      console.log('==== 1')
       isTitleClicked = true
       appendShareSlide()
     })
     $('#show-share-btn-logo').on('click', function () {
+      console.log('==== 2')
       isLogoClicked = true
       appendShareSlide()
     })
