@@ -88,7 +88,16 @@ body {
   width: 6rem;
   position: absolute;
   left: .3rem;
-  bottom: 0
+  bottom: 0;
+  vertical-align: middle;
+}
+.slide .logo .logo-1 {
+  width: .8rem;
+}
+.slide .logo .logo-2 {
+  width: 4rem;
+  /* position: absolute; */
+  /* left: 1rem; */
 }
 .slide .img-container {
   text-align: center;
@@ -124,6 +133,21 @@ body {
 
 .slide1 .music-btn {
   bottom: .3rem;
+}
+.slide1 .logo {
+  width: 6rem;
+  position: absolute;
+  left: .3rem;
+  bottom: 0;
+  vertical-align: middle;
+}
+.slide1 .logo .logo-1 {
+  width: 1rem;
+}
+.slide1 .logo .logo-2 {
+  width: 4.5rem;
+  /* position: absolute; */
+  /* left: 1rem; */
 }
 
 .slide .next-page {
